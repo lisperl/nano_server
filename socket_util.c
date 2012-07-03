@@ -67,3 +67,9 @@ int apccet_new_connection(int serv_socket){
 	client_socket=accept(serv_socket,(struct sockaddr*)&addr,&len);
 	return client_socket;
 }
+int send_data(int fd,const char* buf,int len){
+	return 0;
+}
+int recv_data(int fd,char* buf,int len){
+	return 0;
+}

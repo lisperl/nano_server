@@ -11,6 +11,7 @@
 #include<stdio.h>
 
 #include"socket_util.h"
+#include"handle_http.h"
 #define MAX_EPOLL_SIZE 32
 
 int main(int argc, char* argv[]) {
@@ -46,7 +47,7 @@ int main(int argc, char* argv[]) {
 				ev.events = EPOLLIN | EPOLLET;
 				epoll_ctl(epoll_fd, EPOLL_CTL_ADD, client_socket, &ev);
 			} else if (events[i].events & EPOLLIN) {
-
+				handle_http(events[i].data.fd);
 			}
 		}
 
